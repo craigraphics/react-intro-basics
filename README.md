@@ -1,4 +1,4 @@
-# react-intro-basics
+# React basics
 
 ## What is React?
 React is a JavaScript library created for building UI components.
