@@ -307,3 +307,40 @@ class Football extends React.Component {
 
 ReactDOM.render(<Football />, document.getElementById('root'));
 ```
+
+### Adding Forms in React
+Just like in HTML, React uses forms to allow users to interact with the web page. Handling forms is about how you handle the data when it changes value or gets submitted. In React, form data is usually handled by the components. When the data is handled by the components, all the data is stored in the component state.
+You can control changes by adding event handlers in the `onChange` attribute, and control the submit action by adding an event handler in the `onSubmit` attribute::
+
+```JavaScript
+class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { username: '' };
+  }
+  mySubmitHandler = (event) => {
+    event.preventDefault();
+    alert("You are submitting " + this.state.username);
+  }
+  myChangeHandler = (event) => {
+    this.setState({username: event.target.value});
+  }
+  render() {
+    return (
+      <form onSubmit={this.mySubmitHandler}>
+      <h1>Hello {this.state.username}</h1>
+      <p>Enter your name, and submit:</p>
+      <input
+        type='text'
+        onChange={this.myChangeHandler}
+      />
+      <input
+        type='submit'
+      />
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(<MyForm />, document.getElementById('root'));
+```
